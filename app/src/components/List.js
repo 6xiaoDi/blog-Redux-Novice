@@ -1,4 +1,5 @@
 import React from 'react';
+import Item from "./Item";
 
 export default class List extends React.Component {
 
@@ -9,6 +10,7 @@ export default class List extends React.Component {
 
         return(
             <div>
+                <Item datas={this.props.data}/>
             </div>
         );
 
