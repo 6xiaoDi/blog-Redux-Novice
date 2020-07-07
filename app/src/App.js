@@ -39,8 +39,6 @@ class App extends React.Component {
           price: 599900
         }
       ]}
-      // 数据存在本地
-      localStorage.setItem('items', JSON.stringify(this.state.items));
   }
 
   render() {

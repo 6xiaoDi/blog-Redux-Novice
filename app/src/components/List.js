@@ -6,11 +6,9 @@ export default class List extends React.Component {
 
     render() {
 
-        console.log(store.getState());
-
         return(
             <div>
-                <Item datas={this.props.data}/>
+                <Item />
             </div>
         );
 
