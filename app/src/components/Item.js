@@ -9,8 +9,9 @@ class Item extends React.Component {
 
 
     render() {
-        // 当前这个组件也希望接受items数据
-        console.log(this.props.datas)
+        let items = localStorage.getItem('items');
+        items = items && JSON.parse(items);
+        console.log(items);
 
         return(
             <div>

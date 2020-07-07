@@ -5,8 +5,10 @@ export default class List extends React.Component {
 
     render() {
 
-        // 当前这个组件希望接受items数据
-        console.log(this.props.data)
+        let items = localStorage.getItem('items');
+        // items如果存在，就将其转为对象
+        items = items && JSON.parse(items);
+        console.log(items);
 
         return(
             <div>
