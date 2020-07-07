@@ -1,4 +1,5 @@
 import React from 'react';
+import store from "../store";
 
 class Item extends React.Component {
 
@@ -9,9 +10,7 @@ class Item extends React.Component {
 
 
     render() {
-        let items = localStorage.getItem('items');
-        items = items && JSON.parse(items);
-        console.log(items);
+        console.log(store.getState());
 
         return(
             <div>
