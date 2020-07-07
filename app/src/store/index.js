@@ -10,7 +10,9 @@ const store = createStore(
     combineReducers({
         users,
         items
-    })
+    }),
+    // 调用插件
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export default store;
