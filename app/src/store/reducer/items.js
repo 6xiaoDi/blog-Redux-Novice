@@ -31,8 +31,16 @@ let items = [
     }
 ];
 
+let maxId = 6; // 当前的id
+
 export default (state = items, action) => {
     switch (action.type) {
+        case 'ADD_ITEM':
+            return [...state, {
+                id: ++maxId,
+                name: action.payload.name,
+                price: 10000
+            }];
         default:
             return state;
     }
