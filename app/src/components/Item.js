@@ -17,36 +17,52 @@ class Item extends React.Component {
     addNewItem() {
     }
 
-    async componentDidMount() {
-        // let rs = await axios({
-        //     // url:'/api/items'
-        //     url: '/items'
-        // })
-        // // 更新到store
-        // this.props.dispatch({
-        //     type: 'UPDATE_ITEMS',
-        //     payload: {
-        //         items: rs.data
-        //     }
-        // });
-        // 这个函数只能是同步的
-        // async function updateAction(dispatch) {
-        async function updateAction() {
+    componentDidMount(dispatch) {
+
+        // dispatch参数才是真正原生的
+        async function updateAction(dispatch) {
+            // return {
+            //     type: 'UPDATE_ITEMS',
+            //     payload: {
+            //         items: []
+            //     }
+            // }
+
+            // return new Promise((resolve) => {
+            //     setTimeout(() => {
+            //         resolve({
+            //             type: 'UPDATE_ITEMS',
+            //             payload: {
+            //                 items: []
+            //             }
+            //         });
+            //     }, 1000);
+            // })
+
             let rs = await axios({
+                // url: '/api/items',
                 url: '/api/items'
             });
 
-
-            return {
+            dispatch({
                 type: 'UPDATE_ITEMS',
                 payload: {
-                    items: []
+                    items: rs.data
                 }
-            }
+            });
+
+            // return {
+            //     type: 'UPDATE_ITEMS',
+            //     payload: {
+            //         items: []
+            //     }
+            // }
         }
 
         // dispath 最终是接受一个 action 对象，我们可以通过函数来产生这样的一个对象，但是这个函数必须是同步的
-        this.props.dispatch( updateAction() );
+
+        // dispatch 会被修改，这里的 dispatch 并不是真正的原来的 dispatch 函数
+        this.props.dispatch( updateAction );
     }
 
     render() {

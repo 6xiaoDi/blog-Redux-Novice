@@ -15,10 +15,10 @@ const store = createStore(
     }),
 
     // 对 dispatch 方法进行包装
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
 
     // 调用插件
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export default store;
