@@ -42,7 +42,8 @@ router.get('/', async ctx => {
     ctx.body = 'hello';
 });
 
-router.get('/api/items', async ctx => {
+// router.get('/api/items', async ctx => {
+router.get('/items', async ctx => {
     ctx.body = items;
 });
 
