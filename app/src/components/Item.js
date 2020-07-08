@@ -1,30 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 class Item extends React.Component {
 
     constructor(props) {
         super(props);
 
+        this.state = {
+            items:[]
+        }
+
         this.addNewItem = this.addNewItem.bind(this);
     }
 
     addNewItem() {
-        let val = this.el.value;
+    }
 
-        this.props.dispatch({
-            type: 'ADD_ITEM',
-            payload: {
-                name: val
-            }
-        });
-
-        this.el.value = '';
+    async componentDidMount() {
+        let rs = await axios({
+            url:'http://localhost:7777/api/items'
+        })
+        console.log(rs);
     }
 
     render() {
-
-        console.log(this.props);
 
         return(
             <div>
