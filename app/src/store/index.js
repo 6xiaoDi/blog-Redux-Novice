@@ -1,7 +1,8 @@
 /**
  * 使用 redux 来管理数据
  * */
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+
 import thunk from 'redux-thunk'
 
 import users from './reducer/users';
@@ -12,6 +13,10 @@ const store = createStore(
         users,
         items
     }),
+
+    // 对 dispatch 方法进行包装
+    // applyMiddleware(thunk)
+
     // 调用插件
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

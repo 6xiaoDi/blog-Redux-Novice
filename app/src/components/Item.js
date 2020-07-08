@@ -18,16 +18,19 @@ class Item extends React.Component {
     }
 
     async componentDidMount() {
-        let rs = await axios({
-            // url:'/api/items'
-            url: '/items'
-        })
-        // 更新到store
-        this.props.dispatch({
-            type: 'UPDATE_ITEMS',
-            payload: {
-                items: rs.data
-            }
+        // let rs = await axios({
+        //     // url:'/api/items'
+        //     url: '/items'
+        // })
+        // // 更新到store
+        // this.props.dispatch({
+        //     type: 'UPDATE_ITEMS',
+        //     payload: {
+        //         items: rs.data
+        //     }
+        // });
+        this.props.dispatch( function () {
+
         });
     }
 
