@@ -22,7 +22,13 @@ class Item extends React.Component {
             // url:'/api/items'
             url: '/items'
         })
-        console.log(rs);
+        // 更新到store
+        this.props.dispatch({
+            type: 'UPDATE_ITEMS',
+            payload: {
+                items: rs.data
+            }
+        });
     }
 
     render() {
