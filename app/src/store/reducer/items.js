@@ -1,7 +1,7 @@
 let items = [
 ];
 
-let maxId = 6; // 当前的id
+// let maxId = 6; // 当前的id
 
 export default (state = items, action) => {
     switch (action.type) {
