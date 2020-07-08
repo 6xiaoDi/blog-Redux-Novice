@@ -48,6 +48,18 @@
         })
     }
 
+    // 先将原有的store.dispatch存起来，再重写！
+    let dispatch = store.dispatch;
+
+
+    // 把它重写
+    store.dispatch = function(reducer) {
+        reducer.then( val => {
+            console.log(val);
+            // 处理完then后再调用原生dispatch
+            dispatch(val);
+        } );
+    };
 
     store.dispatch( add('abc') );
     console.log( store.getState() );
