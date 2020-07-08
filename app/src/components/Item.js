@@ -29,9 +29,18 @@ class Item extends React.Component {
         //         items: rs.data
         //     }
         // });
-        this.props.dispatch( function () {
+        // 这个函数只能是同步的
+        function updateAction() {
+            return {
+                type: 'UPDATE_ITEMS',
+                payload: {
+                    items: []
+                }
+            }
+        }
 
-        });
+        // dispath 最终是接受一个 action 对象，我们可以通过函数来产生这样的一个对象，但是这个函数必须是同步的
+        this.props.dispatch( updateAction() );
     }
 
     render() {
