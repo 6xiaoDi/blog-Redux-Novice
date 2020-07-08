@@ -19,7 +19,7 @@ class Item extends React.Component {
 
     async componentDidMount() {
         let rs = await axios({
-            url:'http://localhost:7777/api/items'
+            url:'/api/items'
         })
         console.log(rs);
     }
