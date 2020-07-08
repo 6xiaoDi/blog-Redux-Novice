@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="./redux.min.js"></script>
+<script>
+
+
+
+    let users = [
+        {
+            id: 1,
+            username: 'zs',
+            age: 35
+        },
+        {
+            id: 2,
+            username: 'ls',
+            age: 30
+        }
+    ];
+
+
+    function reducer(state, action) {
+
+        switch (action.type) {
+            case 'ADD':
+                return [...state, action.payload];
+            default:
+                return state;
+        }
+
+    }
+
+    let store = Redux.createStore( reducer, users );
+
+    let unsubscribe = store.subscribe(function() {
+        console.log(store.getState());
+    });
+
+    // console.log(store);
+
+    // console.log( store.getState() );
+
+
+    function add(payload) {
+        return {
+            type: 'ADD',
+            payload
+        }
+    }
+
+
+    store.dispatch(add({
+        id: 3,
+        username: 'xm',
+        age: 30
+    }));
+
+    // console.log( store.getState() );
+
+    store.dispatch(add({
+        id: 3,
+        username: 'xh',
+        age: 30
+    }));
+
+    // console.log( store.getState() );
+
+
+</script>
+</body>
+</html>
