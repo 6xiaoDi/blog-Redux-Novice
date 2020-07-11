@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="./redux.min.js"></script>
+<script>
+    let appData = {
+        // 用户数据
+        users: [
+
+        ],
+        // 商品数据
+        items: [
+
+        ],
+        // 购物车数据
+        cart: [
+
+        ]
+    };
+
+
+    function reducer(state, action) {
+
+        switch (action.type) {
+            case 'ADD_USER':
+                return {
+                    items: state.items,
+                    cart: state.cart,
+                    users: [...state.users, action.payload]
+                };
+            default:
+                return state;
+        }
+
+    }
+
+    let store = Redux.createStore( reducer, appData );
+
+    console.log( store.getState() );
+
+    function addUserAction(payload) {
+        return {
+            type: 'ADD_USER',
+            payload
+        }
+    }
+
+    store.dispatch( addUserAction({id: 1, username: 'lisi'}) );
+    console.log( store.getState() );
+</script>
+</body>
+</html>
