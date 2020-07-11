@@ -24,6 +24,7 @@
         }
     ];
 
+
     function reducer(state, action) {
         // state : 上一次的 数据    action：动作
         console.log('执行了', action);
@@ -34,6 +35,15 @@
 
     console.log(store);
     console.log( store.getState() );
+
+    store.dispatch({
+        type: 'ADD', // 名字随便取
+        payload: {   // 需要修改的数据（增量数据）
+            id: 3,
+            username: 'wangwu',
+            age: 30
+        }
+    });
 
 </script>
 </body>
