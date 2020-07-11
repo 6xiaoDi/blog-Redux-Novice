@@ -55,13 +55,19 @@
 
     // 拆分后再融合
 
-    function reducer(state, action) {
-        return {
-            users: usersReducer(state.users, action),
-            items: itemsReducer(state.items, action),
-            cart: cartReducer(state.cart, action)
-        }
-    }
+    // function myReducer(state, action) {
+    //     return {
+    //         users: usersReducer(state.users, action),
+    //         items: itemsReducer(state.items, action),
+    //         cart: cartReducer(state.cart, action)
+    //     }
+    // }
+
+    let reducer = Redux.combineReducers({
+        users: usersReducer,
+        items: itemsReducer,
+        cart: cartReducer
+    });
 
     let store = Redux.createStore( reducer, appData );
 
