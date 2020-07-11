@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="./redux.min.js"></script>
+<script>
+
+
+<!--利用redux来管理和维护数据-->
+    let users = [
+        {
+            id: 1,
+            username: 'zs',
+            age: 35
+        },
+        {
+            id: 2,
+            username: 'ls',
+            age: 30
+        }
+    ];
+
+    let store = Redux.createStore( function () {
+
+}, users)
+
+console.log(store);
+console.log( store.getState() );
+
+</script>
+</body>
+</html>
