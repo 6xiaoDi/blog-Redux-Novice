@@ -24,11 +24,17 @@
         }
     ];
 
-
     function reducer(state, action) {
         // state : 上一次的 数据    action：动作
         console.log('执行了', action);
-        return state;
+
+        switch (action.type) {
+            case 'ADD':
+                return [...state, action.payload];
+            default:
+                // 没做任何操作，就返回仓库上一次的状态
+                return state;
+        }
     }
 
     let store = Redux.createStore( reducer, users );
@@ -45,6 +51,7 @@
         }
     });
 
+    console.log( store.getState() );
 </script>
 </body>
 </html>
