@@ -30,7 +30,10 @@
 
         switch (action.type) {
             case 'ADD':
-                return [...state, action.payload];
+                // 千万不要如下返回，因为我们要保持仓库的数据与上次的数据完全隔离的
+                state.push(action.payload);
+                return state;
+            // return [...state, action.payload];
             default:
                 // 没做任何操作，就返回仓库上一次的状态
                 return state;
