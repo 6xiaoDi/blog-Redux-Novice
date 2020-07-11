@@ -8,6 +8,7 @@
 
 <script src="./redux.min.js"></script>
 <script>
+
     let appData = {
         // 用户数据
         users: [
@@ -24,19 +25,42 @@
     };
 
 
-    function reducer(state, action) {
-
+    // state默认是users空数组
+    function usersReducer(state = [], action) {
         switch (action.type) {
             case 'ADD_USER':
-                return {
-                    items: state.items,
-                    cart: state.cart,
-                    users: [...state.users, action.payload]
-                };
+                return [...state, action.payload];
             default:
                 return state;
         }
+    }
 
+    function itemsReducer(state = [], action) {
+        switch (action.type) {
+            case 'ADD_ITEM':
+                return [...state, action.payload];
+            default:
+                return state;
+        }
+    }
+
+    function cartReducer(state = [], action) {
+        switch (action.type) {
+            case 'ADD_CART':
+                return [...state, action.payload];
+            default:
+                return state;
+        }
+    }
+
+    // 拆分后再融合
+
+    function reducer(state, action) {
+        return {
+            users: usersReducer(state.users, action),
+            items: itemsReducer(state.items, action),
+            cart: cartReducer(state.cart, action)
+        }
     }
 
     let store = Redux.createStore( reducer, appData );
