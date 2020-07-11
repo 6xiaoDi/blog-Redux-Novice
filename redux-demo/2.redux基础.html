@@ -10,7 +10,7 @@
 <script>
 
 
-<!--利用redux来管理和维护数据-->
+    <!--利用redux来管理和维护数据-->
     let users = [
         {
             id: 1,
@@ -24,12 +24,16 @@
         }
     ];
 
-    let store = Redux.createStore( function () {
+    function reducer(state, action) {
+        // state : 上一次的 数据    action：动作
+        console.log('执行了', action);
+        return state;
+    }
 
-}, users)
+    let store = Redux.createStore( reducer, users );
 
-console.log(store);
-console.log( store.getState() );
+    console.log(store);
+    console.log( store.getState() );
 
 </script>
 </body>
