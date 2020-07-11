@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="./redux.min.js"></script>
+<script>
+
+
+    let user1 = {
+        id: 1,
+        username: 'lisi',
+        age: 35
+    };
+
+    function growUp(user) {
+        // user.age++;
+
+        // return {
+        //         ...user,
+        //         {age: user.age+1}
+        // }
+
+        return Object.assign({}, user, {age: user.age + 1});
+    }
+
+    let user2 = growUp(user1);
+    let user3 = growUp(user2);
+
+    console.log(user1);
+    console.log(user2);
+    console.log(user3);
+
+</script>
+</body>
+</html>
